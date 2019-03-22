@@ -17,7 +17,6 @@ class BurgerBuilder extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     this.props.onInitIngredients();
 
   }
@@ -55,7 +54,6 @@ class BurgerBuilder extends Component {
 
     for (let key in disabledInfo) {
       disabledInfo[key] = disabledInfo[key] <= 0;
-      // console.log(disabledInfo);
     }
 
     let orderSummary = null;
