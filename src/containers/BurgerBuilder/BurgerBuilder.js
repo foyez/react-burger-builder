@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import Aux from '../../hoc/Auxiliary/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
@@ -57,7 +56,7 @@ const BurgerBuilder = (props) => {
 	let burger = props.error ? <p>Ingredients can't be loaded!</p> : <Spinner />;
 	if (props.ings) {
 		burger = (
-			<Aux>
+			<Fragment>
 				<Burger ingredients={props.ings} />
 				<BuildControls
 					ingredientAdded={props.onIngredientAdded}
@@ -68,7 +67,7 @@ const BurgerBuilder = (props) => {
 					price={props.price}
 					isAuth={props.isAuthenticated}
 				/>
-			</Aux>
+			</Fragment>
 		);
 
 		orderSummary = (
@@ -82,12 +81,12 @@ const BurgerBuilder = (props) => {
 	}
 
 	return (
-		<Aux>
+		<Fragment>
 			<Modal show={purchasing} modalClosed={handlePurchaseCancel}>
 				{orderSummary}
 			</Modal>
 			{burger}
-		</Aux>
+		</Fragment>
 	);
 };
 
