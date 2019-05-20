@@ -20,7 +20,7 @@ const Auth = React.lazy(() => {
 
 const App = (props) => {
 	useEffect(() => {
-		props.onTryAutoSignup();
+		props.onTryAutoLogin();
 	}, []);
 
 	let routes = (
@@ -61,7 +61,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onTryAutoSignup: () => dispatch(actions.authCheckState())
+		onTryAutoLogin: () => dispatch(actions.authCheckState())
 	};
 };
 
